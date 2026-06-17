@@ -9,9 +9,9 @@ class BaseUser(BaseModel):
     email: EmailStr
     full_name: str | None = None
 
-class UserIn(BaseModel):
+class UserIn(BaseUser):
     password: str
 
 @app.post("/user/")
-async def create_user(user: UserIn) -> BaseUser
+async def create_user(user: UserIn) -> BaseUser:
     return user
